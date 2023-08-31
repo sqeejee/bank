@@ -24,4 +24,15 @@ public class bank {
         return 1;
     }
 
+    public void depositMoney() {
+
+    }
+
+    public void transferMoney() {
+
+    }
+
+    public void audit() {
+
+    }
 }
