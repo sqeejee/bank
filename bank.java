@@ -29,8 +29,12 @@ public class bank {
 
     }
 
-    public int checkBalance(String email) {
-        return 1;
+    public double checkBalance(String email) throws Exception {
+        if (!ids.containsKey(email))
+            throw new Exception("this account does not exist");
+        else
+            return ids.get(email);
+
     }
 
     public void depositMoney() {
