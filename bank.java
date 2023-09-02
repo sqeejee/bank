@@ -1,18 +1,21 @@
+import java.util.*;
+import java.io.*;
+
 public class bank {
 
+    private HashMap<String, Double> ids;
     String id;
     double balance;
 
-    public bank(String id, double balance) {
-        this.id = id;
-        this.balance = balance;
+    public bank() {
+        ids = new HashMap<String, Double>();
     }
 
-    public void openAccount(String email, double initBal) {
-        if (true) {
-            bank newBank = new bank(email, initBal);
+    public void openAccount(String email, double initBal) throws Exception {
+        if (!ids.containsKey(email)) {
+            ids.put(email, initBal);
         } else {
-            throw new Error("You already registered an account!");
+            throw new Exception("You already registered an account!");
         }
     }
 
