@@ -49,10 +49,14 @@ public class bank {
     }
 
     public boolean transferMoney(String fromAccount, String toAccount, double amount) throws Exception {
-        if(!ids.containsKey(toAccount) || !ids.containsKey(fromAccount))
-        {
-            throw new Exception()
+        if (!ids.containsKey(toAccount) || !ids.containsKey(fromAccount)) {
+            throw new Exception("Make sure both accounts exist!");
         }
+        if (ids.get(fromAccount) < amount)
+            throw new Exception("You do not have that kinda paper blud.");
+        ids.put(fromAccount, (ids.get(fromAccount) - amount));
+        ids.put(toAccount, (ids.get(toAccount) + amount));
+        return true;
     }
 
     public void audit() {
