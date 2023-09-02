@@ -19,7 +19,13 @@ public class bank {
         }
     }
 
-    public void closeAccount(String email) {
+    public void closeAccount(String email) throws Exception {
+        if (!ids.containsKey(email))
+            throw new Exception("This account does not exist");
+
+        if (ids.get(email) != 0)
+            throw new Exception("There is still an outstanidng balance on this account ");
+        ids.remove(email);
 
     }
 
