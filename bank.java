@@ -59,8 +59,15 @@ public class bank {
         return true;
     }
 
-    public void audit() {
+    public void audit() throws IOException {
+        FileWriter fw = new FileWriter("AccountAudit.txt");
 
+        PrintWriter write = new PrintWriter(fw);
+
+        for (Map.Entry<String, Double> element : ids.entrySet()) {
+            write.println("Email: " + element.getKey() + "Balance: " + element.getValue());
+        }
+        write.close();
     }
 
     public double withdrawMoney(String userId, double amount) throws Exception {
